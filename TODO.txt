@@ -1,0 +1,21 @@
+NOW
+- more randomness in label id
+- user fxcinspectionsed@gmail.com saw the warning only once? did the _CastError force him to log out and the warning then disappeared?
+
+- computed properties with riverpod and fd? `select()`?
+- update docs with latest releases
+
+ISAR PROGRESS
+ - need to determine serialization types
+   - use jsonserializable ones? not trivial to get them
+   - bypass jsonserializable completely and replicate isar serialization? more work, and converters of both json and isar in models
+   - try to automate type discovery
+
+CUSTOM ISAR, WHY?
+ - can't use autoincrement with null IDs, because they could clash with remotes'
+ - int? id can't be final?? how does it work with freezed?
+ - doesnt play well with jsonserializable? what if string ids?
+ - dynamic schemas
+ - relationships don't notify, expensive to watch all collections (not lazily) to listen to what changed
+ - automatic backlinks (except when can't detect inverse)
+ - isarlinks is an iterable, works with freezed??
